@@ -64,7 +64,6 @@ module.exports = (app, channel) => {
       "ADD_TO_WISHLIST"
     );
 
-    // PublishCustomerEvent(data);
     PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
 
     res.status(200).json(data.data.product);
@@ -79,7 +78,6 @@ module.exports = (app, channel) => {
       { productId },
       "REMOVE_FROM_WISHLIST"
     );
-    // PublishCustomerEvent(data);
     PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
 
     res.status(200).json(data.data.product);
@@ -94,8 +92,6 @@ module.exports = (app, channel) => {
       "ADD_TO_CART"
     );
 
-    // PublishCustomerEvent(data);
-    // PublishShoppingEvent(data);
 
     PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
     PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify(data));
@@ -115,8 +111,6 @@ module.exports = (app, channel) => {
       "REMOVE_FROM_CART"
     );
 
-    // PublishCustomerEvent(data);
-    // PublishShoppingEvent(data);
 
     PublishMessage(channel, CUSTOMER_SERVICE, JSON.stringify(data));
     PublishMessage(channel, SHOPPING_SERVICE, JSON.stringify(data));

@@ -93,5 +93,4 @@ module.exports.CreateChannel = async () => {
 
 module.exports.PublishMessage = (channel, service, msg) => {
   channel.publish(EXCHANGE_NAME, service, Buffer.from(msg));
-  console.log("Sent: ", msg);
 };

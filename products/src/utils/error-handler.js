@@ -8,7 +8,7 @@ const LogErrors = createLogger({
       new transports.File({ filename: 'app_error.log' })
     ]
   });
-    
+
 
 class ErrorLogger {
     constructor(){}
@@ -21,7 +21,7 @@ class ErrorLogger {
           });
         console.log('==================== End Error Logger ===============');
         // log error with Logger plugins
-      
+
         return false;
     }
 
@@ -35,7 +35,7 @@ class ErrorLogger {
 }
 
 const ErrorHandler = async(err,req,res,next) => {
-    
+
     const errorLogger = new ErrorLogger();
 
     process.on('uncaughtException', (reason, promise) => {
@@ -49,10 +49,7 @@ const ErrorHandler = async(err,req,res,next) => {
             //process exist // need restart
         }
     })
-    
-    // console.log(err.description, '-------> DESCRIPTION')
-    // console.log(err.message, '-------> MESSAGE')
-    // console.log(err.name, '-------> NAME')
+
     if(err){
         await errorLogger.logError(err);
         if(errorLogger.isTrustError(err)){
