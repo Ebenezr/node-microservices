@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const { products, appEvents } = require("./api");
+const { products } = require("./api");
 
 const { CreateChannel } = require("./utils");
 
