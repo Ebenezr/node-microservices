@@ -22,18 +22,36 @@ jobs:
       - name: Test Customer Service
         working-directory: ./customer
         run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
           npm ci
+          else
+          npm i
+          fi
           npm test
 
       - name: Test Products Service
         working-directory: ./products
         run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
           npm ci
+          else
+          npm i
+          fi
           npm test
 
       - name: Test Shopping Service
         working-directory: ./shopping
         run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
           npm ci
+          else
+          npm i
+          fi
           npm test
 
